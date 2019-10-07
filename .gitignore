@@ -29,3 +29,7 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+/.vs/05-deseos/v15/.suo
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite-journal

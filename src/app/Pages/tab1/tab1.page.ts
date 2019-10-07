@@ -14,8 +14,7 @@ export class Tab1Page {
  
   constructor( private alertCtrl: AlertController, public deseosService: DeseosService, private router: Router) {}
 
-  async agregarLista(){
-     //this.router.navigateByUrl('tabs/tab1/agregar');
+  async agregarLista(){     
 
      const alert = await this.alertCtrl.create({
         header: 'Nueva lista',
@@ -42,7 +41,8 @@ export class Tab1Page {
                     return;
                   }        
                   
-                  this.deseosService.crearLista(data.titulo);
+                 const listaId =  this.deseosService.crearLista(data.titulo);
+                 this.router.navigateByUrl(`tabs/tab1/agregar/${listaId}`);
              } 
           }
       ]
