@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Lista } from '../../models/lista.model';
 import { AlertController } from "@ionic/angular";
-import { async } from '@angular/core/testing';
 import { DeseosService } from '../../services/deseos.service';
 import { Router } from '@angular/router';
 
@@ -35,8 +33,7 @@ export class Tab1Page {
             },
              {
                text: 'Crear',
-               handler:(data)=>{
-                  console.log(data);   
+               handler:(data)=>{                 
                   if(data.titulo.lenght ===0){
                     return;
                   }        
@@ -49,7 +46,7 @@ export class Tab1Page {
      });
 
      alert.present();
-
   }
+
   
 }
