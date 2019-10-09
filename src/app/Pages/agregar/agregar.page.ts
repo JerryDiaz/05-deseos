@@ -53,7 +53,6 @@ export class AgregarPage implements OnInit {
     
     this.deseosService.guardarStorage();
 
-    console.log(this.deseosService.listas);
   }
 
   borrar(i:number){

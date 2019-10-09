@@ -33,11 +33,10 @@ export class Tab1Page {
             },
              {
                text: 'Crear',
-               handler:(data)=>{                 
+               handler:(data)=>{               
                   if(data.titulo.lenght ===0){
                     return;
-                  }        
-                  
+                  }   
                  const listaId =  this.deseosService.crearLista(data.titulo);
                  this.router.navigateByUrl(`tabs/tab1/agregar/${listaId}`);
              } 

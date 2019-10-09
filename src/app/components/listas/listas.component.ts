@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren } from '@angular/core';
 import { DeseosService } from '../../services/deseos.service';
 import { Lista } from '../../models/lista.model';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, IonList } from '@ionic/angular';
 
 @Component({
   selector: 'app-listas',
@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class ListasComponent implements OnInit {
 
+  @ViewChildren(IonList) lista: IonList;
   @Input() terminada = true;
 
   constructor(public deseosService:DeseosService,
@@ -39,7 +40,7 @@ export class ListasComponent implements OnInit {
           {
             name: 'titulo',
             type: 'text',
-            value: item.titulo
+            value: item.titulo            
           }
       ],
       buttons:[
@@ -47,13 +48,20 @@ export class ListasComponent implements OnInit {
           text: 'Cancelar',
           role: 'cancel',
           handler: ()=> {
-            console.log('Cancelar');               
+            this.lista.closeSlidingItems();            
           }
          },
           {
             text: 'Editar',
             handler:(data)=>{                 
-               console.log('Editar');
+               console.log(data);
+               if(data.titulo.lenght ===0){
+                return;
+               }
+              
+               item.titulo = data.titulo;
+               this.deseosService.guardarStorage();
+               this.lista.closeSlidingItems();
           } 
        }
       ]

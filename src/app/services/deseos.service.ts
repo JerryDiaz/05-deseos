@@ -27,18 +27,6 @@ export class DeseosService {
     this.guardarStorage();
   }
 
-  editarLista(lista:Lista){
-    let id = Number(lista.id);
-
-    let index = this.listas.findIndex((obj => obj.id == id));   
-
-    this.listas[index].titulo = lista.titulo;
-    
-    this.guardarStorage();
-    
-
-  }
-
   obtenerLista(id:string | number){
     id = Number(id);
 
